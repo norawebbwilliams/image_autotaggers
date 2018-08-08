@@ -7,6 +7,7 @@ Purpose: Example Python script for detecting celebrties with Rekognition
 import csv
 import boto3 
 import pickle
+import os
 
 ########### Paths
 ### MUST ADJUST HERE (1/2)
@@ -53,14 +54,7 @@ client=boto3.client('rekognition','us-east-1', # or choose the best region for y
 
 
 ########### Create a list of images to pass through API
-# This should list the location of images on your local machine
-# e.g. 'C:/Data/Raw_images/image1234.jpg', 'C:/Data/Raw_images/image5678.jpg'
-# With AWS, you could also use an S3 bucket
-
-# Here the location of all the image of interest has been stored in a pickle file
-#local_images = pickle.load(open("local_image_locations.p", "rb"))
-
-# Or you can make a list of all the images in the rekog_data_dir you created
+# Make a list of all the images in the rekog_data_dir you created
 local_images = os.listdir(rekog_images_dir)
 
 
@@ -71,7 +65,7 @@ holder_content_celeb = []
 ### Looping
 for imageFile in local_images:
 
-    with open(imageFile, 'rb') as image:
+    with open(rekog_images_dir + imageFile, 'rb') as image:
         response = client.recognize_celebrities(Image={'Bytes': image.read()})
     
     print('Detecting faces for ' + imageFile)
@@ -117,7 +111,7 @@ for imageFile in local_images:
 
 ###########
 # Write out the results to a csv
-with open(rekog_data_dir + 'awsrekognition_celeb_detect.csv', 'w', newline = '') as csvfile:
+with open(rekog_results_dir + 'awsrekognition_celeb_detect.csv', 'w', newline = '') as csvfile:
     fieldnames = ['image_id', 'celeb_full_response',
                   'celeb_num', 'celeb_urls',
                   'celeb_name', 'celeb_id',
