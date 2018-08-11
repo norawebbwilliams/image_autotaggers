@@ -14,12 +14,12 @@ import os
 # Path to where your want to save the resulting labels
 rekog_results_dir = 'path_to_where_you_want_to_save_labels'
 # e.g.:
-#rekog_results_dir = 'C:/Users/Nora/Dropbox/RA_Images/apsa_2018/workshop/auto_tagger_example/results/'
+#rekog_results_dir = 'C:/Users/Nora/Desktop/auto_tagger_example/results/'
 
 # Path to where your images are
 rekog_images_dir = 'path_to_where_your_images_are'
 # e.g.:
-#rekog_images_dir = 'C:/Users/Nora/Dropbox/RA_Images/apsa_2018/workshop/auto_tagger_example/data/'
+#rekog_images_dir = 'C:/Users/Nora/Desktop/auto_tagger_example/results/'
 
 ########### Connect to AWS Rekognition API
 # Read in your personal keys
@@ -38,7 +38,7 @@ credentials = []
 with open('path_to_your_saved_AWS_access_keys.csv', newline='') as csvfile:
 
 # e.g.:
-#with open('C:/Users/Nora/Dropbox/RA_Images/Mturk_test/AWS_personal_nora_admin_credentials.csv', newline='') as csvfile:
+#with open('C:/Users/Nora/Desktop/auto_tagger_example/keys/AWS_personal_nora_admin_credentials.csv', newline='') as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
         credentials.append(row)
