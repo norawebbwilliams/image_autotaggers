@@ -19,7 +19,7 @@ rekog_results_dir = 'path_to_where_you_want_to_save_labels'
 # Path to where your images are
 rekog_images_dir = 'path_to_where_your_images_are'
 # e.g.:
-#rekog_images_dir = 'C:/Users/Nora/Desktop/auto_tagger_example/results/'
+#rekog_images_dir = 'C:/Users/Nora/Desktop/auto_tagger_example/data/'
 
 ########### Connect to AWS Rekognition API
 # Read in your personal keys
