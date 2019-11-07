@@ -78,7 +78,6 @@ for imageFile in local_images:
         temp_dict["label_num"] = ''
         temp_dict["label_str"] = ''
         temp_dict["label_conf"] = ''
-        temp_dict["label_orient_correct"] = response['OrientationCorrection']
         holder_labels.append(temp_dict)   
     
     else:
@@ -93,7 +92,6 @@ for imageFile in local_images:
             temp_dict["label_num"] = label_counter
             temp_dict["label_str"] = label['Name']
             temp_dict["label_conf"] = label['Confidence']
-            temp_dict["label_orient_correct"] = response['OrientationCorrection']
             label_counter +=1 # update for the next label
             holder_labels.append(temp_dict)
           
@@ -104,8 +102,7 @@ len(holder_labels)
 with open(rekog_results_dir + 'awsrekognition_detect_labels.csv', 'w', newline = '') as csvfile:
     fieldnames = ['image_id', 'full_detect_labels_response',
                   'label_num', 'label_str',
-                  'label_conf', 'label_orient_correct'
-                  ]
+                  'label_conf']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader() 
     for entry in holder_labels:

@@ -83,8 +83,7 @@ for imageFile in local_images:
         temp_dict["celeb_face_data"] = ""
         temp_dict["celeb_face_conf"] = ""
         temp_dict["celeb_match_conf"] = ""
-        temp_dict['celeb_metadata'] = response['ResponseMetadata']
-        temp_dict['celeb_orient_correct'] = response['OrientationCorrection']        
+        temp_dict['celeb_metadata'] = response['ResponseMetadata']    
         holder_content_celeb.append(temp_dict)
     
     ## If celebrities are detected, save a dictionary for each celebrity:
@@ -105,7 +104,6 @@ for imageFile in local_images:
             temp_dict["celeb_face_conf"] = face['Face']['Confidence']
             temp_dict["celeb_match_conf"] = face['MatchConfidence']
             temp_dict['celeb_metadata'] = response['ResponseMetadata']
-            temp_dict['celeb_orient_correct'] = response['OrientationCorrection']
             celeb_counter += 1
             holder_content_celeb.append(temp_dict)
 
@@ -116,8 +114,7 @@ with open(rekog_results_dir + 'awsrekognition_celeb_detect.csv', 'w', newline = 
                   'celeb_num', 'celeb_urls',
                   'celeb_name', 'celeb_id',
                   'celeb_face_data', 'celeb_face_conf', 
-                  'celeb_match_conf', 'celeb_metadata',
-                  'celeb_orient_correct']
+                  'celeb_match_conf', 'celeb_metadata']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
     for entry in holder_content_celeb:
