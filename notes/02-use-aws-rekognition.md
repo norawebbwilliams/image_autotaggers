@@ -44,12 +44,20 @@ Steps:
 
 ## 2. Create an AWS account
 
-See the [Step 1 of the first module](https://github.com/norawebbwilliams/cambridge_elements/blob/master/notes/01-launch-use-ec2-aws-instances.md) and follow those instructions to create an AWS account.
+* Go to [https://aws.amazon.com/](https://aws.amazon.com/) and click on `Create a new AWS account` (upper right corner).
+
+* Fill out the Sign Up form. 
+
+* You will be asked to provide a credit card. New accounts can use some types of services for free during the first year. You can learn more about free access [here](https://aws.amazon.com/free/).
+
+* Folks affiliated with a university should consider signing up for [AWS Educate](https://aws.amazon.com/education/awseducate/). Once you apply and are approved, you'll receive free AWS credits (from $30-200 depending on your status).
 
 
 ## 3. Create an IAM user
 
-* If you haven't already, create an IAM user for yourself with administrative access, [following the steps in this tutorial](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html). The easiest option in the tutorial is "Creating an Administrator IAM User and Group (Console)." Make note of the username and password for your newly created admin user.
+* For security purposes, AWS highly recommends that you do not log in with as the "root" user (the user you just created, linked to your credit card). AWS suggests that you [create a new user for yourself using their IAM famework](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html). You can give that new user full administrator privileges. The only AWS element that an IAM administrative user will not be able to see is billing information -- for that you will have to log in as the root user.  
+
+* Create an IAM user for yourself with administrative access, [following the steps in this tutorial](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html). The easiest option in the tutorial is "Creating an Administrator IAM User and Group (Console)." Make note of the username and password for your newly created admin user.
 
 * Signing in to AWS as an IAM user looks a bit different than logging in as the root user. On your IAM dashboard in AWS, you'll see the heading "IAM users sign-in link:" followed by a web address, e.g. `https://XXXXXXXX.signin.aws.amazon.com/console` where `XXXXXXXX` is your AWS account number. Bookmark or otherwise save this link somewhere you will remember it. When you log in as an IAM user, you will start from this page. 
 
